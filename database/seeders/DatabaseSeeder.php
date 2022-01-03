@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use \App\Models\ReadingType;
+use \App\Models\Farm;
+use \App\Models\CSVImport;
 
 class DatabaseSeeder extends Seeder
 {
