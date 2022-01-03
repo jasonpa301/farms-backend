@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Farm::createDefaults();
+        ReadingType::createDefaults();
+        CSVImport::getCSVContents("Nooras_farm.csv");
+        CSVImport::getCSVContents("friman_metsola.csv");
+        CSVImport::getCSVContents("ossi_farm.csv");
+        CSVImport::getCSVContents("PartialTech.csv");
     }
 }
