@@ -17,6 +17,23 @@ class Reading {
             'reading_value' => $readingValue
         ]);
     }  
+
+    public static function getReadings() {    
+        return DB::table(self::TABLENAME)
+        ->join('reading_types', self::TABLENAME.'.reading_type_id', '=', 'reading_types.id')
+        ->join('farms', self::TABLENAME.'.farm_id', '=', 'farms.id')
+        ->select(self::TABLENAME.'.*', 'reading_types.reading_type', 'farms.farm_name')
+        ->get();
+    }
+
+    public static function getReadingsByFarm($farmId) {    
+        return DB::table(self::TABLENAME)
+        ->join('reading_types', self::TABLENAME.'.reading_type_id', '=', 'reading_types.id')
+        ->join('farms', self::TABLENAME.'.farm_id', '=', 'farms.id')
+        ->select(self::TABLENAME.'.*', 'reading_types.reading_type', 'farms.farm_name')
+        ->where('farm_id', '=', $farmId)
+        ->get();
+    }
     
 }
     

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class ReadingType {
     
@@ -26,6 +25,11 @@ class ReadingType {
         foreach($readingTypes as $readingType) {
             self::createReadingType($readingType);
         }
+    }
+
+    public static function getReadingTypes() {
+        $readingTypes = DB::table(self::TABLENAME)->get();
+        return $readingTypes;
     }
 
 }

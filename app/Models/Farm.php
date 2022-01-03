@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class Farm {
 
@@ -56,6 +55,16 @@ class Farm {
             self::createFarm($farm->farm, $farm->address, $farm->lat, $farm->long);
         }
 
+    }
+
+    public static function getFarmId($farmName) {
+        return DB::table(self::TABLENAME)->where('farm_name', $farmName)->value('id');
+    }
+
+    public static function getFarms() {
+        return DB::table(self::TABLENAME)
+        ->select('*')
+        ->get();
     }
 
 }
