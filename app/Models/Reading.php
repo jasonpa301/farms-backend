@@ -23,6 +23,7 @@ class Reading {
         ->join('reading_types', self::TABLENAME.'.reading_type_id', '=', 'reading_types.id')
         ->join('farms', self::TABLENAME.'.farm_id', '=', 'farms.id')
         ->select(self::TABLENAME.'.*', 'reading_types.reading_type', 'farms.farm_name')
+        ->orderBy('readings.date_time', 'desc')
         ->get();
     }
 
