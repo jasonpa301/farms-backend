@@ -24,3 +24,7 @@ Route::get('/readings/all', function (Request $request) {
 Route::get('/readings/farm/{farmid}', function ($farmId) {
     return Reading::getReadingsByFarm($farmId);
 });
+
+Route::get('/readingtypes/all', function (Request $request) {
+    return ReadingType::getReadingTypes();
+});
