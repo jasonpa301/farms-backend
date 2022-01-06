@@ -10,7 +10,7 @@ class Farm {
     const TABLENAME = "farms";
 
     public static function createFarm($farmName, $address, $lat, $long) {
-        DB::table(self::TABLENAME)->insert([
+        return DB::table(self::TABLENAME)->insert([
             'farm_name' => $farmName,
             'address' => $address,
             'latitude' => $lat,
