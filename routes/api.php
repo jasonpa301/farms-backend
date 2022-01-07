@@ -62,3 +62,54 @@ Route::post('/farm/addnew', function (Request $request) {
         "error_info" => $error
     );
 });
+
+Route::post('/reading/addnew', function (Request $request) {
+    $farmId = $request->farmId;
+    $readingTypeId = $request->readingTypeId;
+    $readingValue = $request->readingValue;
+    $readingTime = $request->readingTime;
+    $readingType = $request->readingType;
+    $error = "";
+    $success = false;
+    if (!$farmId || !$readingTypeId || !isset($readingValue) || !$readingTime || !$readingType) {
+        $success = false;
+        $error = "missing_parameters";
+    }
+    else {
+        if ($readingType == "temperature") {
+            if ($readingValue  < -50 || $readingValue  > 100) {
+                $success = false;
+                $error = "invalid_value";
+            }
+        }
+        elseif ($readingType == "pH") {
+            if ($readingValue  < 0 || $readingValue  > 14) {
+                $success = false;
+                $error = "invalid_value";
+            }
+        }
+        elseif ($readingType == "rainFall") {
+            if ($readingValue  < 0 || $readingValue  > 500) {
+                $success = false;
+                $error = "invalid_value";
+            }
+        }
+
+        if ($error != "invalid_value") {
+            $createReading = Reading::createReading($farmId, $readingTime, $readingTypeId, $readingValue);
+            if ($createReading) {
+                $success = true;
+            }
+            else {
+                $success = false;
+                $error = "database_update_failed";
+            }
+        }
+
+    }
+
+    return (object) array(
+        "success" => $success,
+        "error_info" => $error
+    );
+});

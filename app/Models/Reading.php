@@ -10,7 +10,7 @@ class Reading {
     const TABLENAME = "readings";
 
     public static function createReading($farmId, $dateTime, $readingTypeId, $readingValue) {
-        DB::table(self::TABLENAME)->insert([
+        return DB::table(self::TABLENAME)->insert([
             'farm_id' => $farmId,
             'date_time' => $dateTime,
             'reading_type_id' => $readingTypeId,
