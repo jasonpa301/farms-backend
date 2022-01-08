@@ -113,3 +113,13 @@ Route::post('/reading/addnew', function (Request $request) {
         "error_info" => $error
     );
 });
+
+Route::get('/readings/average/{farmid}/{readingTypeId}', function ($farmId, $readingTypeId) {
+    if ($farmId && $readingTypeId) {
+        return Reading::getMonthlyAverages($farmId, $readingTypeId);
+    }
+    else {
+        return [];
+    }
+    
+});
