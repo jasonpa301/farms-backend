@@ -8,12 +8,16 @@ I chose laravel because I wanted to use a language I was familiar with for the b
 #### Requirements
 
 - Docker
+- Docker-compose
+(This project was developed using docker desktop v4.3.1 on Windows 10)
 
 If you are running the project on __Windows__ then the project must be ran inside a WSL2 distro e.g Ubuntu. Detailed instructions for this can be found from the [official documentation](https://laravel.com/docs/8.x/installation#getting-started-on-windows). 
 
 #### Set up
 
-The .env file should be added to the root directory. For the purposes of this project you can just copy the contents of the .env.example file and save your own APP_KEY. 
+Clone the repo.
+
+The .env file should be added to the root directory. I'll provide the .env file.
 
 Dependencies can be installed with docker using the following command:
 ```
