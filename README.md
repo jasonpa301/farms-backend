@@ -1,11 +1,11 @@
-### Solita farms backend
+# Solita farms backend
 This is a laravel app created to serve as a backend for the Solita Dev Academy pre-assignment. The backend is run on docker by using laravels sail commands. The backend uses mainly PHP and will serve the frontend with REST endpoints. The data will be saved into a mySQL database.
 
 I chose laravel because I wanted to use a language I was familiar with for the backend (PHP) and also to learn a new framework that has a solid foundation for creating a REST API, that would also be fairly easy to run with docker.
 
 [The frontend of the project is located here](https://github.com/jasonpa301/farms-frontend)
 
-#### Requirements
+## Requirements
 
 - Docker
 - Docker-compose
@@ -13,7 +13,7 @@ I chose laravel because I wanted to use a language I was familiar with for the b
 
 If you are running the project on __Windows__ then the project must be ran inside a WSL2 distro e.g Ubuntu. Detailed instructions for this can be found from the [official documentation](https://laravel.com/docs/8.x/installation#getting-started-on-windows). 
 
-#### Set up
+## Set up
 
 Clone the repo.
 
@@ -39,7 +39,7 @@ The container can be stopped by pressing Control + C, if for some reason the con
 ```
 ./vendor/bin/sail stop
 ```
-##### DB Set up
+## DB Set up
 Next set up the database, using the following command:
 ```
 ./vendor/bin/sail artisan migrate
@@ -54,7 +54,7 @@ then fill the database with the data from the initial csv files with this comman
 ./vendor/bin/sail artisan db:seed
 ```
 
-##### Tests
+## Tests
 __Warning:__ running this command will also test the database migration and seeding, so will reset the database to it's initial state with data from csv files.
 
 Run the following command to run the tests (it may take a minute or two):
