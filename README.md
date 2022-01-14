@@ -44,7 +44,7 @@ Next set up the database, using the following command:
 ```
 ./vendor/bin/sail artisan migrate
 ```
-then fill the database with the data from the initial csv files with this command:
+then fill the database with the data from the initial csv files with this command (this may take a minute or two):
 ```
 ./vendor/bin/sail artisan db:seed
 ```
@@ -54,4 +54,11 @@ then fill the database with the data from the initial csv files with this comman
 ./vendor/bin/sail artisan db:seed
 ```
 
+##### Tests
+__Warning:__ running this command will also test the database migration and seeding, so will reset the database to it's initial state with data from csv files.
+
+Run the following command to run the tests (it may take a minute or two):
+ ```
+./vendor/bin/sail artisan test
+```
 
